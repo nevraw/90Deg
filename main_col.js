@@ -26,39 +26,25 @@ function buttonHandler() {
 
 function loadOptions() {
 
- var $lineColorPicker = $('#lineColorPicker');
- if (localStorage.lineColor) {
-  $lineColorPicker[0].value = localStorage.lineColor;
- }
- 
- var $invertCheckbox = $('#invertCheckbox');
-
- if (localStorage.invert) {
-  $invertCheckbox[0].checked = localStorage.invert === '1';
+ var $bgColorPicker = $('#bgColorPicker');
+ if (localStorage.bgColor) {
+  $bgColorPicker[0].value = localStorage.bgColor;
  }
  
 } 
 
 function getAndStoreConfigData() {
- var $lineColorPicker = $('#lineColorPicker');
+ var $bgColorPicker = $('#bgColorPicker');
 
- var $invertCheckbox = $('#invertCheckbox');
- var $invertValue = 0;
- if ($invertCheckbox[0].checked) {
-   $invertValue = 1; 
- }
- console.log('invert value: ' + $invertValue);
 
  var options = {
-  invert:        $invertValue,
-  lineColor:     $lineColorPicker.val()
+  bgColor:     $bgColorPicker.val()
  };
  
  console.log('Got options: ' + JSON.stringify(options));
 
- localStorage.lineColor = options.lineColor;
- localStorage.invert    = $invertValue;
-
+ localStorage.bgColor = options.bgColor;
+ 
  return options;
 }
 
